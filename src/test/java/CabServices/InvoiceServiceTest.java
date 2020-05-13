@@ -4,7 +4,7 @@ import org.junit.Assert;
 import org.junit.Test;
 
 public class InvoiceServiceTest {
-    InvoiceService invoiceService = null;
+    InvoiceService invoiceService = new InvoiceService();
 
     @Test
     public void givenDistanceAndTime_ShouldReturnTotalFare() {
@@ -24,9 +24,10 @@ public class InvoiceServiceTest {
 
     @Test
     public void givenMultipleRides_shouldReturnInvoiceSummary() {
-        Rides[] rides = { new Rides(2.0, 5),
-                         new Rides(4.1, 5)};
-        double fare = invoiceService.calculateFare(rides);
-        Assert.assertEquals(71.0, fare, 0.0);
+        Ride[] rides = { new Ride(2.0, 5),
+                         new Ride(0.1, 1)};
+        InvoiceSummary summary = invoiceService.calculateFare(rides);
+        InvoiceSummary expectedInvoiceSummary = new InvoiceSummary(2, 30.0);
+        Assert.assertEquals(expectedInvoiceSummary, summary);
     }
 }
