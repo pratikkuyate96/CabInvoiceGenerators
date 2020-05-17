@@ -1,9 +1,9 @@
-package CabServices;
+package CabServices.service;
 
 public class InvoiceSummary {
-    private final int numberOfRides;
-    private final double totalFare;
-    private final double averageFare;
+    public int numberOfRides;
+    public double totalFare;
+    public double averageFare;
 
     public InvoiceSummary(int numberOfRides, double totalFare) {
         this.numberOfRides = numberOfRides;
